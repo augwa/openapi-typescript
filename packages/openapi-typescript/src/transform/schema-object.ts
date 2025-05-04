@@ -485,6 +485,7 @@ function transformSchemaObjectCore(schemaObject: SchemaObject, options: Transfor
             !options.path?.includes("parameters") &&
             !options.path?.includes("requestBody") &&
             !options.path?.includes("requestBodies")) // can’t be required, even with defaults
+            || !("nullable" in v) || ("nullable" in v && v.nullable === false)
             ? undefined
             : QUESTION_TOKEN;
         let type = $ref
