@@ -1,5 +1,5 @@
 {
-  "name": "openapi-typescript",
+  "name": "@augwa/openapi-typescript",
   "description": "Convert OpenAPI 3.0 & 3.1 schemas to TypeScript",
   "version": "7.7.0",
   "author": {
@@ -22,7 +22,7 @@
   "homepage": "https://openapi-ts.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openapi-ts/openapi-typescript",
+    "url": "https://github.com/augwa/openapi-typescript",
     "directory": "packages/openapi-typescript"
   },
   "keywords": [
@@ -77,5 +77,8 @@
     "strip-ansi": "^7.1.0",
     "typescript": "^5.8.3",
     "vite-node": "^2.1.9"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

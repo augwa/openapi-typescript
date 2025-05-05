@@ -1,5 +1,5 @@
 {
-  "name": "openapi-react-query",
+  "name": "@augwa/openapi-react-query",
   "description": "Fast, type-safe @tanstack/react-query client to work with your OpenAPI schema.",
   "version": "0.4.0",
   "author": {
@@ -27,7 +27,7 @@
   "homepage": "https://openapi-ts.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openapi-ts/openapi-typescript",
+    "url": "https://github.com/augwa/openapi-typescript",
     "directory": "packages/openapi-react-query"
   },
   "bugs": {
@@ -81,5 +81,8 @@
   "peerDependencies": {
     "@tanstack/react-query": "^5.25.0",
     "openapi-fetch": "workspace:^"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
