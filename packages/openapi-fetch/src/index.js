@@ -54,8 +54,9 @@ export default function createClient(clientOptions) {
       body,
       ...init
     } = fetchOptions || {};
+    let finalBaseUrl = baseUrl;
     if (localBaseUrl) {
-      baseUrl = removeTrailingSlash(localBaseUrl);
+      finalBaseUrl = removeTrailingSlash(localBaseUrl) ?? baseUrl;
     }
 
     let querySerializer =
@@ -72,29 +73,46 @@ export default function createClient(clientOptions) {
             });
     }
 
-    const serializedBody = body === undefined ? undefined : bodySerializer(body);
-
-    const defaultHeaders =
+    const serializedBody =
+      body === undefined
+        ? undefined
+        : bodySerializer(
+            body,
+            // Note: we declare mergeHeaders() both here and below because it’s a bit of a chicken-or-egg situation:
+            // bodySerializer() needs all headers so we aren’t dropping ones set by the user, however,
+            // the result of this ALSO sets the lowest-priority content-type header. So we re-merge below,
+            // setting the content-type at the very beginning to be overwritten.
+            // Lastly, based on the way headers work, it’s not a simple “present-or-not” check becauase null intentionally un-sets headers.
+            mergeHeaders(baseHeaders, headers, params.header),
+          );
+    const finalHeaders = mergeHeaders(
       // with no body, we should not to set Content-Type
       serializedBody === undefined ||
-      // if serialized body is FormData; browser will correctly set Content-Type & boundary expression
-      serializedBody instanceof FormData
+        // if serialized body is FormData; browser will correctly set Content-Type & boundary expression
+        serializedBody instanceof FormData
         ? {}
         : {
             "Content-Type": "application/json",
-          };
+          },
+      baseHeaders,
+      headers,
+      params.header,
+    );
 
     const requestInit = {
       redirect: "follow",
       ...baseOptions,
       ...init,
       body: serializedBody,
-      headers: mergeHeaders(defaultHeaders, baseHeaders, headers, params.header),
+      headers: finalHeaders,
     };
 
     let id;
     let options;
-    let request = new CustomRequest(createFinalURL(schemaPath, { baseUrl, params, querySerializer }), requestInit);
+    let request = new CustomRequest(
+      createFinalURL(schemaPath, { baseUrl: finalBaseUrl, params, querySerializer }),
+      requestInit,
+    );
     let response;
 
     /** Add custom parameters to Request object */
@@ -109,7 +127,7 @@ export default function createClient(clientOptions) {
 
       // middleware (request)
       options = Object.freeze({
-        baseUrl,
+        baseUrl: finalBaseUrl,
         fetch,
         parseAs,
         querySerializer,
@@ -574,9 +592,18 @@ export function defaultPathSerializer(pathname, pathParams) {
  * Serialize body object to string
  * @type {import("./index.js").defaultBodySerializer}
  */
-export function defaultBodySerializer(body) {
+export function defaultBodySerializer(body, headers) {
   if (body instanceof FormData) {
     return body;
+  }
+  if (headers) {
+    const contentType =
+      headers.get instanceof Function
+        ? (headers.get("Content-Type") ?? headers.get("content-type"))
+        : (headers["Content-Type"] ?? headers["content-type"]);
+    if (contentType === "application/x-www-form-urlencoded") {
+      return new URLSearchParams(body).toString();
+    }
   }
   return JSON.stringify(body);
 }

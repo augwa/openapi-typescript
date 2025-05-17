@@ -1,5 +1,38 @@
 # swr-openapi
 
+## 5.3.0
+
+### Minor Changes
+
+- [#2310](https://github.com/openapi-ts/openapi-typescript/pull/2310) [`e66b5ce`](https://github.com/openapi-ts/openapi-typescript/commit/e66b5ce63bfcdc57c6ee942e5ed4e7667e64c290) Thanks [@drwpow](https://github.com/drwpow)! - Build package with unbuild to improve CJS support
+
+### Patch Changes
+
+- Updated dependencies [[`e66b5ce`](https://github.com/openapi-ts/openapi-typescript/commit/e66b5ce63bfcdc57c6ee942e5ed4e7667e64c290), [`e66b5ce`](https://github.com/openapi-ts/openapi-typescript/commit/e66b5ce63bfcdc57c6ee942e5ed4e7667e64c290)]:
+  - openapi-fetch@0.14.0
+  - openapi-typescript@7.8.0
+
+## 5.2.0
+
+### Minor Changes
+
+- [#2147](https://github.com/openapi-ts/openapi-typescript/pull/2147) [`5848759`](https://github.com/openapi-ts/openapi-typescript/commit/5848759e3b6796331b0e85bf26a01c14af90537f) Thanks [@SSlime-s](https://github.com/SSlime-s)! - Add custom error types to query builder
+
+## 5.1.7
+
+### Patch Changes
+
+- Updated dependencies [[`81c031d`](https://github.com/openapi-ts/openapi-typescript/commit/81c031da8584ed49b033ebfc67bbb3e1ca258699)]:
+  - openapi-fetch@0.13.8
+
+## 5.1.6
+
+### Patch Changes
+
+- Updated dependencies [[`30c6da8`](https://github.com/openapi-ts/openapi-typescript/commit/30c6da800a00bda87da66dea6d04807e1379f06a), [`7205e12`](https://github.com/openapi-ts/openapi-typescript/commit/7205e12e07e5fd36a6bb3be44ea911f57bbbeb60)]:
+  - openapi-fetch@0.13.7
+  - openapi-typescript@7.7.1
+
 ## 5.1.5
 
 ### Patch Changes
