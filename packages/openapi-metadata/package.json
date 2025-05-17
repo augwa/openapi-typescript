@@ -1,5 +1,5 @@
 {
-  "name": "openapi-metadata",
+  "name": "@augwa/openapi-metadata",
   "description": "Auto-Generate OpenAPI specifications from Typescript decorators",
   "version": "0.2.1",
   "author": {
@@ -34,7 +34,7 @@
   "homepage": "https://openapi-ts.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openapi-ts/openapi-typescript",
+    "url": "https://github.com/augwa/openapi-typescript",
     "directory": "packages/openapi-metadata"
   },
   "bugs": {
@@ -72,5 +72,8 @@
     "reflect-metadata": "^0.2.2",
     "typescript": "^5.8.3",
     "unplugin-swc": "^1.5.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
