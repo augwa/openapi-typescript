@@ -1,5 +1,19 @@
 # openapi-fetch
 
+## 0.14.0
+
+### Minor Changes
+
+- [#2310](https://github.com/openapi-ts/openapi-typescript/pull/2310) [`e66b5ce`](https://github.com/openapi-ts/openapi-typescript/commit/e66b5ce63bfcdc57c6ee942e5ed4e7667e64c290) Thanks [@drwpow](https://github.com/drwpow)! - Build package with unbuild. Also remove the minified version (openapi-fetch is only useful in a TypeScript/bundler environment, so there’s no sense in loading it from a CDN clientside).
+
+## 0.13.8
+
+### Patch Changes
+
+- [#2096](https://github.com/openapi-ts/openapi-typescript/pull/2096) [`0058128`](https://github.com/openapi-ts/openapi-typescript/commit/0058128afa258180793ae2071022d89a688d8ddc) Thanks [@obulat](https://github.com/obulat)! - Encode the request body if `Content-Type` header is `x-www-form-urlencoded`
+- [#2157](https://github.com/openapi-ts/openapi-typescript/pull/2157) [`419d9ac`](https://github.com/openapi-ts/openapi-typescript/commit/419d9ac6851cf780b81060ddc05c231c5225a17b) Thanks [@Rendez](https://github.com/Rendez)! - Fix overriding baseUrl per request without overriding default baseUrl
+- [#2308](https://github.com/openapi-ts/openapi-typescript/pull/2308) [`81c031d`](https://github.com/openapi-ts/openapi-typescript/commit/81c031da8584ed49b033ebfc67bbb3e1ca258699) Thanks [@drwpow](https://github.com/drwpow)! - Improve header handling
+
 ## 0.13.7
 
 ### Patch Changes

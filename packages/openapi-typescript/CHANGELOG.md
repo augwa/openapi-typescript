@@ -1,5 +1,23 @@
 # openapi-typescript
 
+## 7.8.0
+
+### Minor Changes
+
+- [#2310](https://github.com/openapi-ts/openapi-typescript/pull/2310) [`e66b5ce`](https://github.com/openapi-ts/openapi-typescript/commit/e66b5ce63bfcdc57c6ee942e5ed4e7667e64c290) Thanks [@drwpow](https://github.com/drwpow)! - Build package with unbuild to improve CJS support
+
+## 7.7.3
+
+### Patch Changes
+
+- [#2185](https://github.com/openapi-ts/openapi-typescript/pull/2185) [`67889ba`](https://github.com/openapi-ts/openapi-typescript/commit/67889baf7832188f6589e0fb2e3d31a2e6ede257) Thanks [@duncanbeevers](https://github.com/duncanbeevers)! - Fix invalid $ref index into path
+
+## 7.7.2
+
+### Patch Changes
+
+- [#2145](https://github.com/openapi-ts/openapi-typescript/pull/2145) [`d79efae`](https://github.com/openapi-ts/openapi-typescript/commit/d79efaea3385d2421d3d295f69d7036cddb106b5) Thanks [@luhn](https://github.com/luhn)! - Don't remove `null` type if a default is present.
+
 ## 7.7.1
 
 ### Patch Changes
